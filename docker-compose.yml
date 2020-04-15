@@ -1,3 +1,6 @@
 telegram:
     build: telegram
     restart: unless-stopped
+facebook:
+    build: facebook
+    restart: unless-stopped
