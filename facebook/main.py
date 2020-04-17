@@ -43,7 +43,7 @@ def main():
         h = ('graphite.hs-ldz.pl', 2003)
         likes = get_num_facebook_likes('hakierspejs')
         upload_to_graphite(h, 'hakierspejs.facebook.num_likes', likes)
-        time.sleep(60)
+        time.sleep(3600)
 
 if __name__ == '__main__':
     logging.basicConfig(level='INFO')
