@@ -1,6 +1,20 @@
-telegram:
-    build: telegram
-    restart: unless-stopped
-facebook:
-    build: facebook
-    restart: unless-stopped
+version: '3.7'
+
+services:
+  telegram:
+      build: telegram
+      restart: unless-stopped
+  facebook:
+      build: facebook
+      restart: unless-stopped
+  listwatcher:
+      build: listwatcher
+      restart: unless-stopped
+      environment:
+          MAILMAN_ADMIN_COOKIE_FPATH: /run/secrets/mailman_admin_cookie
+      secrets:
+        - mailman_admin_cookie
+
+secrets:
+  mailman_admin_cookie:
+    file: mailman_admin_cookie.txt
