@@ -43,7 +43,7 @@ def main():
     prefix = 'hakierspejs.mumble.'
     h = ('graphite.hs-ldz.pl', 2003)
     while True:
-        num_joined = get_num_joined('Hakierspejs-Łódź')
+        num_joined = get_mumble_user_count('Hakierspejs-Łódź')
         upload_to_graphite(h, prefix + 'num_joined', num_joined)
         time.sleep(60.0)
 
