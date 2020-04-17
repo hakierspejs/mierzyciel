@@ -1,6 +1,9 @@
 version: '3.7'
 
 services:
+  github:
+      build: github
+      restart: unless-stopped
   mumble:
       build: mumble
       restart: unless-stopped
