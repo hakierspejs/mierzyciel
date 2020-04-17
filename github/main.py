@@ -9,10 +9,13 @@ import requests
 LOGGER = logging.getLogger('mierzyciel.github')
 
 def get_github_status(org_name):
-    url = f'https://api.github.com/orgs/{org_name}/repos'
-    j = requests.get(url).json()
+    users_url = f'https://api.github.com/orgs/{org_name}/members'
+    users_j = requests.get(users_url).json()
+    repos_url = f'https://api.github.com/orgs/{org_name}/repos'
+    repos_j = requests.get(repos_url).json()
     return {
-        'num_repos': len(j)
+        'num_repos': len(repos_j),
+        'num_users': len(users_j),
     }
 
 
