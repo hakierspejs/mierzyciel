@@ -1,6 +1,9 @@
 version: '3.7'
 
 services:
+  mumble:
+      build: mumble
+      restart: unless-stopped
   telegram:
       build: telegram
       restart: unless-stopped
