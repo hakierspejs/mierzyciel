@@ -3,6 +3,8 @@
 Ten program został stworzony po to, aby regularnie sprawdzać aktywność na wszystkich stronach, na których istniejemy, 
 a także na wszystkich komunikatorach, tekstowych bądź głosowych, na których się udzielamy. 
 
+
+
 ## Dlaczego powstał Mierzyciel?
 
 Mierzyciel powstał po to, aby:
@@ -11,11 +13,11 @@ Mierzyciel powstał po to, aby:
 
 
 
-## Mierzyciel śledzi:
-* Telegrama
-* Mumble'a
-* Facebooka
-* Mailing listy
-* GitHuba
-* Meetupa
-* stan finansowy HS.
+## Mierzyciel rejestruje aktywności związane z:
+* Telegramem
+* Mumble
+* Facebookiem
+* Mailing listą
+* GitHubem
+* Meetupem
+* stanem finansowym HS.
