@@ -51,15 +51,17 @@ def extract_email(email_desc):
 
 def get_active_in_archive(archive_url):
     t = requests.get(archive_url).text
-    return {extract_email(x[1]) for x in re.findall('(\n\n)?From: (.*)\n', t)}
+    return [extract_email(x[1]) for x in re.findall('(\n\n)?From: (.*)\n', t)]
 
 
 def get_active_ever():
     ret = set()
+    num_posts = 0
     for archive_url in list_archives():
         for active in get_active_in_archive(archive_url):
             ret.add(active)
-    return ret
+            num_posts += 1
+    return num_posts, ret
 
 
 def main():
@@ -69,9 +71,10 @@ def main():
     h = ('graphite.hs-ldz.pl', 2003)
     while True:
         num_subscribed = len(get_subscribed(admin_cookie))
-        num_active_ever = len(get_active_ever())
+        num_posts, active_ever = get_active_ever()
         upload_to_graphite(h, prefix + 'num_subscribed', num_subscribed)
-        upload_to_graphite(h, prefix + 'active_ever', num_active_ever)
+        upload_to_graphite(h, prefix + 'active_ever', len(active_ever))
+        upload_to_graphite(h, prefix + 'posts', num_posts)
         time.sleep(60.0)
 
 
