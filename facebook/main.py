@@ -11,11 +11,18 @@ LOGGER = logging.getLogger('mierzyciel.telegram')
 
 def get_num_facebook_likes(fb_name):
     url = f'https://www.facebook.com/{fb_name}'
-    h = lxml.html.fromstring(requests.get(url).text)
-    x1 = '//div [contains(., "' + 'lubi' + '")]/text()'
-    x2 = '//div [contains(., "' + 'like' + '")]/text()'
-    s = (h.xpath(x1) or h.xpath(x2))[0].split()[0].strip()
-    return int(s)
+    num_tries = 10
+    for n in range(num_tries):
+        try:
+            h = lxml.html.fromstring(requests.get(url).text)
+            x1 = '//div [contains(., "' + 'lubi' + '")]/text()'
+            x2 = '//div [contains(., "' + 'like' + '")]/text()'
+            s = (h.xpath(x1) or h.xpath(x2))[0].split()[0].strip()
+            return int(s)
+        except KeyError:
+            if n == num_tries - 1:
+                raise
+        time.sleep(10.0)
 
 
 def upload_to_graphite(h, metric, value):
