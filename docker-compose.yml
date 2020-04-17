@@ -7,6 +7,9 @@ services:
   facebook:
       build: facebook
       restart: unless-stopped
+  meetup:
+      build: facebook
+      restart: unless-stopped
   listwatcher:
       build: listwatcher
       restart: unless-stopped
