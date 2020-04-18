@@ -79,5 +79,6 @@ def main():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level='INFO')
+    fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(level='INFO', format=fmt)
     main()
