@@ -16,6 +16,12 @@ services:
   meetup:
       build: meetup
       restart: unless-stopped
+  temperatura:
+      build: temperatura
+      restart: unless-stopped
+  siedziba_ilosc_osob:
+      build: siedziba_ilosc_osob
+      restart: unless-stopped
   listwatcher:
       build: listwatcher
       restart: unless-stopped
