@@ -36,10 +36,10 @@ def main():
     while True:
         response = get_response()
         upload_to_graphite(
-            h, prefix + "degrees_celcius", float(responose["Temperature"])
+            h, prefix + "degrees_celcius", float(response["Temperature"])
         )
         upload_to_graphite(
-            h, prefix + "humidity_percent", float(responose["Humidity"])
+            h, prefix + "humidity_percent", float(response["Humidity"])
         )
         time.sleep(60.0)
 
